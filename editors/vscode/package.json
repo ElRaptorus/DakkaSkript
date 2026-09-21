@@ -1,0 +1,52 @@
+{
+  "name": "orkskript-vscode",
+  "displayName": "Orkskript",
+  "description": "Syntax highlighting for Orkskript (.ork)",
+  "version": "0.0.1",
+  "publisher": "dakkaskript",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "activationEvents": [
+    "onLanguage:orkscript"
+  ],
+  "main": "./extension.js",
+  "categories": [
+    "Programming Languages"
+  ],
+  "dependencies": {
+    "orkscript-tsserver-plugin": "workspace:*"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "orkscript",
+        "aliases": [
+          "Orkscript",
+          "Ork"
+        ],
+        "extensions": [
+          ".ork"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "orkscript",
+        "scopeName": "source.orkscript",
+        "path": "./syntaxes/orkscript.tmLanguage.json"
+      }
+    ],
+    "typescriptServerPlugins": [
+      {
+        "name": "orkscript-tsserver-plugin",
+        "enableForWorkspaceTypeScriptVersions": true,
+        "languages": [
+          "orkscript"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+stash shout = "WAAAGH";
+// line comment loot nob
+/* block comment mek */
+stash shots = 41;
+ifz (yeah) {
+  loot shout;
+}

@@ -1,0 +1,7 @@
+stash ready = yeah;
+bit waiting = nah;
+ifz (ready) {
+  loot waiting;
+} uvver {
+  deffblast shuv Urty('nope');
+}

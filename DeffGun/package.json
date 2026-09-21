@@ -1,0 +1,38 @@
+{
+  "name": "dakkadakkadakka",
+  "version": "40000.0.0",
+  "private": true,
+  "description": "CUZ YOU'Z CAN NEVA HAZ 'NUFF DAKKA",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "maekItOrky": "prettier --write --config .prettierrc.json ./src",
+    "paintItGreen": "node ../orkscript/src/cli.ts src/index.ork --out generated/index.ts",
+    "maekItShooty": "pnpm run paintItGreen && tsc"
+  },
+  "keywords": [
+    "dakka"
+  ],
+  "license": "Unlicense",
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.2"
+  }
+}

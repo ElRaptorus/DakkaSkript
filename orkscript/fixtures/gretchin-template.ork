@@ -1,0 +1,20 @@
+stash gretchin = `
+const { parentPort, workerData } = require('node:worker_threads');
+(async () => {
+  try {
+    const BIGDAKKAGUN = new Function('return (' + workerData.source + ')')();
+    const STOMPED_HUMIE = await BIGDAKKAGUN(workerData.shotIndex, workerData.dakkaCount);
+    parentPort.postMessage({ ok: true, STOMPED_HUMIE });
+  } catch (error) {
+    parentPort.postMessage({
+      ok: false,
+      message: error instanceof Error ? error.message : String(error),
+    });
+  }
+})();
+const later = Promise.resolve(1);
+`;
+
+nob outsideGretchin() {
+  loot yeah;
+}

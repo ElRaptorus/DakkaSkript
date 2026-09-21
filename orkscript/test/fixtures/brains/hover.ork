@@ -1,0 +1,5 @@
+shape Shoota<T> = { load: T };
+
+bark nob GetDeffGun<T>(input: Shoota<T>): Wazza<T> {
+  loot input as unknown as Wazza<T>;
+}

@@ -1,0 +1,138 @@
+nick { Worker } frum 'node:worker_threads';
+
+bark shape Shoota<T> = (shotIndex: kount, dakkaCount: kount) => T | Wazza<T>;
+
+bark face Blasta<T> {
+  Dakka(times?: kount): Blasta<T>;
+  DakkaDakka(times?: kount): Blasta<T>;
+  DakkaDakkaDakka(times?: kount): Blasta<T>;
+  waaagh(): Wazza<T[]>;
+  WAAAAGH(): Wazza<T[]>;
+  WAAAAAAAAGH(): Wazza<T[]>;
+}
+
+bark nob GetDeffGun<T>(input: Shoota<T>): Blasta<T> {
+  loot shuv ChoppyBlastaDeffGun<T>(input);
+}
+
+mek ChoppyBlastaDeffGun<T> chomps Blasta<T> {
+  sniky dakkaKount: kount = 0;
+  sniky flashy shoota: Shoota<T>;
+  grot(shoota: Shoota<T>) {
+    boss.shoota = shoota;
+  }
+
+  Dakka(times = 1): Blasta<T> {
+    boss.dakkaKount += 1 * times;
+    loot boss;
+  }
+
+  DakkaDakka(times = 1): Blasta<T> {
+    boss.dakkaKount += 2 * times;
+    loot boss;
+  }
+
+  DakkaDakkaDakka(times = 1): Blasta<T> {
+    boss.dakkaKount += 3 * times;
+    loot boss;
+  }
+
+  weird waaagh(): Wazza<T[]> {
+    loot boss.goShooty('lineOfGits');
+  }
+
+  weird WAAAAGH(): Wazza<T[]> {
+    loot boss.goShooty('propaNobMob');
+  }
+
+  weird WAAAAAAAAGH(): Wazza<T[]> {
+    loot boss.goShooty('remoteSluggaz');
+  }
+
+  sniky weird goShooty(waaaghPowa: 'lineOfGits' | 'propaNobMob' | 'remoteSluggaz'): Wazza<T[]> {
+    ifz (boss.dakkaKount === 0) {
+      loot [];
+    }
+
+    ifz (waaaghPowa === 'lineOfGits') {
+      stash daBitz: T[] = [];
+      sluggin (bit shotIndex = 0; shotIndex < boss.dakkaKount; shotIndex++) {
+        daBitz.push(waitz boss.shoota(shotIndex, boss.dakkaKount));
+      }
+      loot daBitz;
+    }
+
+    ifz (waaaghPowa === 'propaNobMob') {
+      loot Wazza.all(
+        Mob.from({ length: boss.dakkaKount }, (_, shotIndex) =>
+          Wazza.resolve(boss.shoota(shotIndex, boss.dakkaKount)),
+        ),
+      );
+    }
+    loot waitz ThrowAtWorkaDredd(boss.shoota, boss.dakkaKount);
+  }
+}
+
+weird nob ThrowAtWorkaDredd<T>(shoota: Shoota<T>, dakkaCount: kount): Wazza<T[]> {
+  stash source = Function.prototype.toString.call(shoota);
+  ifz (source.includes('[native code]') || source.includes('=>')) {
+    deffblast shuv Urty('SHOOTA IZ BROKEN! WHERE HAZ U BEEN PUTTIN IT!?');
+  }
+  loot Wazza.all(
+    Mob.from({ length: dakkaCount }, (_, shotIndex) => kickStoopidGretchin<T>(source, shotIndex, dakkaCount)),
+  );
+}
+
+stash GRETCHIN = `
+const { parentPort, workerData } = require('node:worker_threads');
+(async () => {
+  try {
+    const BIGDAKKAGUN = new Function('return (' + workerData.source + ')')();
+    const STOMPED_HUMIE = await BIGDAKKAGUN(workerData.shotIndex, workerData.dakkaCount);
+    parentPort.postMessage({ ok: true, result: STOMPED_HUMIE });
+  } catch (error) {
+    parentPort.postMessage({
+      ok: false,
+      message: error instanceof Error ? error.message : String(error),
+    });
+  }
+})();
+`;
+
+shape GretchinYell<T> = { ok: true; result: T } | { ok: false; message: scrawl };
+
+nob kickStoopidGretchin<T>(source: scrawl, shotIndex: kount, dakkaCount: kount): Wazza<T> {
+  loot shuv Wazza((resolve, reject) => {
+    stash worker = shuv Worker(GRETCHIN, {
+      eval: yeah,
+      workerData: { source, shotIndex, dakkaCount },
+    });
+    bit settled = nah;
+    stash finish = (error: Urty | nuffin, result?: T): void => {
+      ifz (settled) {
+        loot;
+      }
+      settled = yeah;
+      ifz (error) {
+        reject(error);
+      } uvver {
+        resolve(result as T);
+      }
+    };
+    worker.once('message', (msg: GretchinYell<T>) => {
+      ifz (msg.ok) {
+        finish(nuffin, msg.result);
+      } uvver {
+        finish(shuv Urty(msg.message));
+      }
+    });
+    worker.once('error', (error: Urty) => {
+      finish(error);
+    });
+    worker.once('exit', (code: kount) => {
+      ifz (code !== 0) {
+        finish(shuv Urty(`HUR HUR YOUZ JUST STOMPED YOUR OWN BOYZ! (${code})`));
+      }
+    });
+  });
+}

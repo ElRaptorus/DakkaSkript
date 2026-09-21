@@ -1,0 +1,1 @@
+stash x = yeah; console.log(x)

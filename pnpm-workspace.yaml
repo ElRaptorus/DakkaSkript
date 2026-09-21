@@ -1,0 +1,8 @@
+packages:
+  - "orkscript"
+  - "DeffGun"
+  - "editors/vscode"
+  - "editors/vscode/orkscript-tsserver-plugin"
+
+allowBuilds:
+  esbuild: true

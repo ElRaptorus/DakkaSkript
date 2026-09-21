@@ -1,0 +1,53 @@
+function stillEnglish(x: number): Promise<string> {
+  return Promise.resolve('ok');
+}
+
+nick shoota frum './dakka';
+
+bark face Face {
+  shots: kount;
+  shout: scrawl;
+  loud: yeahnah;
+}
+
+bark mek Boy bigga Urty chomps Face {
+  sniky hidden: kount;
+  krumpy shown: scrawl;
+  flashy locked: yeahnah;
+  stikky countThem() {}
+  grot() {
+    boss;
+  }
+}
+
+bark nob shoot(count: kount, text: scrawl, flag: yeahnah): Wazza<scrawl> {
+  stash frozen = nuffin;
+  bit mutable = nah;
+  runt oldSchool = yeah;
+  ifz (wot frozen) {
+    sluggin (bit i = 0; i < 1; i++) {}
+    stompin (nah) {}
+  } uvver {
+    rukk {
+      deffblast shuv Urty('boom');
+    } katch (err) {
+      loot err;
+    }
+  }
+  shape Shot = kount;
+  loot Mob.from([1]);
+}
+
+bark weird nob later() {
+  waitz shoot(1, 'x', yeah);
+}
+
+stash boys: Mob<kount>;
+stash pile: Rokk;
+stash ledger: Teef<scrawl, kount>;
+Rokk.keys(pile);
+
+stash waaagh = 1;
+stash GetDeffGun = 2;
+stash Dakka = 3;
+foo.loot;

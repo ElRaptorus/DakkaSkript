@@ -1,0 +1,12 @@
+id = "orkscript"
+name = "Orkscript"
+version = "0.0.1"
+schema_version = 1
+authors = ["DakkaSkript"]
+description = "Syntax highlighting for Orkscript (.ork)"
+repository = "https://github.com/ElRaptorus/DakkaSkript"
+
+[grammars.typescript]
+repository = "https://github.com/tree-sitter/tree-sitter-typescript"
+rev = "f975a621f4e7f532fe322e13c4f79495e0a7b2e7"
+path = "typescript"

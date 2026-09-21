@@ -1,0 +1,50 @@
+# Expected Zed captures for orkscript/fixtures/every-word.ork
+# Classification matches orkscript/scripts/paint-zed-highlights.mjs
+# (identifier @keyword / @type / @constructor any-of lists).
+
+nob @keyword
+mek @keyword
+loot @keyword
+shuv @keyword
+boss @keyword
+bigga @keyword
+chomps @keyword
+grot @keyword
+sniky @keyword
+krumpy @keyword
+flashy @keyword
+stikky @keyword
+ifz @keyword
+uvver @keyword
+sluggin @keyword
+stompin @keyword
+rukk @keyword
+katch @keyword
+deffblast @keyword
+weird @keyword
+waitz @keyword
+nick @keyword
+bark @keyword
+frum @keyword
+stash @keyword
+bit @keyword
+runt @keyword
+wot @keyword
+yeah @keyword
+nah @keyword
+nuffin @keyword
+shape @keyword
+face @keyword
+kount @type
+scrawl @type
+yeahnah @type
+Wazza @constructor
+Urty @constructor
+Mob @constructor
+Rokk @constructor
+Teef @constructor
+
+# orkscript/fixtures/gretchin-template.ork
+template contents @string
+# const / Promise / instanceof inside backticks are @string, not @keyword/@type
+# nob outside the template is @keyword

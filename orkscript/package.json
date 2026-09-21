@@ -1,0 +1,11 @@
+{
+  "name": "orkskript-cli",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "orkc": "./src/cli.ts"
+  }
+}

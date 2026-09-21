@@ -1,0 +1,3 @@
+nick { greeting } frum './other.ork';
+
+bark stash message = greeting;
